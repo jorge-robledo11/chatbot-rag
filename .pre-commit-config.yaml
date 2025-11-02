@@ -1,0 +1,56 @@
+repos:
+  # 1. Herramientas de modernización y corrección de sintaxis
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.20.0
+    hooks:
+      - id: pyupgrade
+        args: [--py311-plus]
+
+  # 2. Linting y formateo
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.3  # ← Versión más reciente
+    hooks:
+      - id: ruff
+        args: [--fix, --unsafe-fixes]
+      - id: ruff-format
+
+  # 3. Verificaciones de archivos generales
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0  # ← Versión más reciente
+    hooks:
+      - id: check-yaml
+      - id: check-toml
+      - id: end-of-file-fixer
+        types_or: [python]
+      - id: trailing-whitespace
+        types_or: [python]
+      - id: check-case-conflict
+      - id: detect-private-key
+      - id: check-added-large-files
+
+  # 4. Verificaciones de documentación
+  - repo: https://github.com/PyCQA/pydocstyle
+    rev: 6.3.0
+    hooks:
+      - id: pydocstyle
+
+  # 5. Verificación de tipos
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.16.1
+    hooks:
+      - id: mypy
+        additional_dependencies:
+          - "pydantic>=2.0.0"
+          - "pydantic-settings>=2.0.0"
+        args: [--config-file=pyproject.toml]
+
+  # 6. Tests
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: bash -c "pytest -x --tb=short -q || true"
+        language: system
+        pass_filenames: false
+        always_run: true
+        # stages: [pre-commit]  # ← Línea opcional (es el default)

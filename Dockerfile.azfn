@@ -1,0 +1,26 @@
+# -----------------------------------------------------------------------------
+# 🔥 STAGE 4: AZURE FUNCTIONS
+# -----------------------------------------------------------------------------
+FROM mcr.microsoft.com/azure-functions/python:4-python3.11 AS azure-functions
+
+# 1. Directorio de trabajo donde la Función espera encontrar
+WORKDIR /home/site/wwwroot
+
+# 2. Variables de entorno
+ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+    AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
+    PYTHONPATH=/home/site/wwwroot \
+    # Niveles de log por defecto
+    AzureFunctionsJobHost__logging__logLevel__Default=Information \
+    AzureFunctionsJobHost__logging__logLevel__Microsoft=Warning \
+    AzureFunctionsJobHost__logging__logLevel__Microsoft_AspNetCore_Hosting_Diagnostics=Error \
+    AzureFunctionsJobHost__logging__logLevel__Microsoft_AspNetCore_Server_Kestrel=Error
+
+# 3. Copiar el requirements generado
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 4. Copiar todo lo necesario para la Function App
+COPY azure-fn/function_app.py ./function_app.py
+COPY azure-fn/host.json ./host.json
+COPY backend/ ./backend/

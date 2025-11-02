@@ -1,0 +1,30 @@
+# ───────────────────────────────────────────────────────────────────────────────
+# 🛠 Etapa de build: compila la aplicación Vue e inyecta la base URL
+# ───────────────────────────────────────────────────────────────────────────────
+FROM node:20 AS build
+WORKDIR /app
+
+ARG VITE_API_BASE_URL
+ENV VITE_API_BASE_URL=${VITE_API_BASE_URL}
+
+RUN npm config set strict-ssl false
+COPY frontend/package.json frontend/package-lock.json ./
+RUN npm install && npm install markdown-it
+
+COPY frontend/. ./
+RUN npm run build
+
+# ───────────────────────────────────────────────────────────────────────────────
+# 🚀 Etapa de runtime: sirve los assets con Nginx y aplica tu proxy config
+# ───────────────────────────────────────────────────────────────────────────────
+FROM nginx:stable-alpine AS production
+WORKDIR /usr/share/nginx/html
+
+# 1) Copia los ficheros estáticos generados
+COPY --from=build /app/dist ./
+
+# 2) Exponer el puerto 80
+EXPOSE 80
+
+# 3) Inicia Nginx
+CMD ["nginx", "-g", "daemon off;"]

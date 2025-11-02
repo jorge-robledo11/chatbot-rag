@@ -1,0 +1,11 @@
+{
+  "function_name": "openai_get_text_embedding",
+  "execution_time": 0.18165159225463867,
+  "cpu_percent": 0.0,
+  "memory_peak_mb": 363.75,
+  "memory_current_mb": 363.80078125,
+  "call_count": 7409,
+  "tokens_processed": null,
+  "context_size": null,
+  "timestamp": 1753918170.420288
+}

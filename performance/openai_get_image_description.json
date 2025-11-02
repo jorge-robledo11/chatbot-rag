@@ -1,0 +1,11 @@
+{
+  "function_name": "openai_get_image_description",
+  "execution_time": 17.328210830688477,
+  "cpu_percent": 0.0,
+  "memory_peak_mb": 492.12109375,
+  "memory_current_mb": 363.75,
+  "call_count": 8062,
+  "tokens_processed": null,
+  "context_size": null,
+  "timestamp": 1753918170.2335172
+}

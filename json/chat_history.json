@@ -1,0 +1,85 @@
+{
+    "conversation_history": [
+      {
+        "user": {
+          "query": "Hola un gusto en saludarte",
+          "session_id": "sess_43bdcc7a7bac9090e3dd26e407da7fb5",
+          "priority": "normal",
+          "query_type": "general"
+        },
+        "ia": {
+          "response": "¡Hola! El gusto es mío. Estoy aquí para ayudarte con cualquier consulta técnica sobre documentos PDF indexados. ¿En qué puedo asistirte hoy?",
+          "confidence_score": 1,
+          "session_id": "sess_43bdcc7a7bac9090e3dd26e407da7fb5",
+          "timestamp": "2025-06-17T15:31:06.767850-05:00",
+          "sources": [],
+          "escalation_recommended": false
+        }
+      },
+      {
+        "user": {
+          "query": "Mi nombre es Jorge y me gusta programar",
+          "session_id": "sess_43bdcc7a7bac9090e3dd26e407da7fb5",
+          "priority": "normal",
+          "query_type": "general"
+        },
+        "ia": {
+          "response": "¡Encantado de conocerte, Jorge! Es genial que te guste programar. Si necesitas ayuda con algún tema técnico o tienes alguna consulta sobre documentos relacionados con construcción, productos o cualquier otro tema técnico, no dudes en decírmelo. ¡Estoy aquí para ayudarte! 😊",
+          "confidence_score": 1,
+          "session_id": "sess_43bdcc7a7bac9090e3dd26e407da7fb5",
+          "timestamp": "2025-06-17T15:32:29.517710-05:00",
+          "sources": [],
+          "escalation_recommended": false
+        }
+      },
+      {
+        "user": {
+          "query": "¿Cuáles son los colores disponibles en los tanques tipo botella?",
+          "session_id": "sess_43bdcc7a7bac9090e3dd26e407da7fb5",
+          "priority": "normal",
+          "query_type": "general"
+        },
+        "ia": {
+          "response": "Los colores disponibles para los **tanques tipo botella** de Ajover son los siguientes:\n\n- **Amarillo**\n- **Azul**\n- **Rojo**\n- **Negro**\n\nEstos colores están disponibles para las diferentes capacidades de los tanques, que van desde 250 hasta 1500 litros. Si necesitas más información sobre las dimensiones o características específicas, no dudes en preguntar. 😊",
+          "confidence_score": 1,
+          "session_id": "sess_43bdcc7a7bac9090e3dd26e407da7fb5",
+          "timestamp": "2025-06-17T15:33:10.263488-05:00",
+          "sources": [],
+          "escalation_recommended": false
+        }
+      },
+      {
+        "user": {
+          "query": "¿Me podrías dar la capacidad en litros de la referencia H0410091K en color negro?",
+          "session_id": "sess_43bdcc7a7bac9090e3dd26e407da7fb5",
+          "priority": "normal",
+          "query_type": "general"
+        },
+        "ia": {
+          "response": "La referencia **H0410091K** en color negro corresponde a un tanque tipo botella con una capacidad de **1000 litros**. \n\n### Especificaciones adicionales:\n- **Altura:** 104.0 cm\n- **Largo:** 115.0 cm\n- **Peso:** 30.0 kg\n\nSi necesitas más información sobre este producto o su instalación, no dudes en consultarme. 😊",
+          "confidence_score": 1,
+          "session_id": "sess_43bdcc7a7bac9090e3dd26e407da7fb5",
+          "timestamp": "2025-06-17T15:34:11.292905-05:00",
+          "sources": [],
+          "escalation_recommended": false
+        }
+      },
+      {
+        "user": {
+          "query": "¿Podrías decirme cómo me llamo y que me gusta hacer?",
+          "session_id": "sess_43bdcc7a7bac9090e3dd26e407da7fb5",
+          "priority": "normal",
+          "query_type": "general"
+        },
+        "ia": {
+          "response": "¡Claro que sí! Me dijiste que te llamas **Jorge** y que te gusta **programar**. 😊 Si hay algo más en lo que pueda ayudarte, no dudes en decírmelo. ¡Estoy aquí para asistirte!",
+          "confidence_score": 1,
+          "session_id": "sess_43bdcc7a7bac9090e3dd26e407da7fb5",
+          "timestamp": "2025-06-17T15:35:01.826774-05:00",
+          "sources": [],
+          "escalation_recommended": false
+        }
+      }
+    ]
+  }
+  

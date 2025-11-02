@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  /* PALETA DE COLORES AJOVER - BASADA EN LA IDENTIDAD REAL */
+  --primary-blue: #1e4d8b;        /* Azul corporativo principal de Ajover */
+  --secondary-blue: #2563eb;      /* Azul secundario */
+  --accent-red: #dc2626;          /* Rojo corporativo del logo */
+  --light-blue: #3b82f6;          /* Azul claro para elementos interactivos */
+  --dark-blue: #1e3a8a;           /* Azul oscuro para textos importantes */
+  --dark-gray: #374151;           /* Gris oscuro para textos */
+  --medium-gray: #6b7280;         /* Gris medio */
+  --light-gray: #f8fafc;          /* Gris muy claro para fondos */
+  --white: #ffffff;               /* Blanco puro */
+  --success-green: #10b981;       /* Verde para estados exitosos */
+  --warning-red: #ef4444;         /* Rojo para advertencias */
+  
+  /* SOMBRAS CORPORATIVAS */
+  --shadow-light: 0 2px 4px rgba(30, 77, 139, 0.08);
+  --shadow-medium: 0 4px 12px rgba(30, 77, 139, 0.12);
+  --shadow-heavy: 0 8px 24px rgba(30, 77, 139, 0.16);
+  
+  /* TIPOGRAFÍA */
+  font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  
+  color: var(--dark-gray);
+  background-color: var(--white);
+  
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* CLASES DE UTILIDAD PARA COLORES */
+.primary-color {
+  color: var(--primary-blue);
+}
+
+.secondary-color {
+  color: var(--secondary-blue);
+}
+
+.accent-color {
+  color: var(--accent-red);
+}
+
+/* ENLACES */
+a {
+  font-weight: 500;
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-red);
+  text-decoration: underline;
+}
+
+/* BODY Y CONTENEDOR PRINCIPAL */
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  background-color: #1e4d8b;
+  background-image: url('/ajover-background.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Overlay muy sutil para mejorar la legibilidad sin afectar los colores */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+
+#app {
+  width: 550px;
+  max-width: 1200px;
+  height: 90vh;
+  max-height: 800px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(30, 77, 139, 0.15);
+  overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
+  border: 1px solid rgba(30, 77, 139, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* TIPOGRAFÍA */
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin: 0 0 1rem 0;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--secondary-blue);
+  margin: 0 0 0.75rem 0;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--dark-gray);
+  margin: 0 0 1rem 0;
+}
+
+/* BOTONES */
+button {
+  padding: 0;
+  margin: 0;
+  background: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* BOTÓN PRIMARIO */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  box-shadow: var(--shadow-light);
+  border: none;
+}
+
+.btn-primary:hover {
+  box-shadow: var(--shadow-medium);
+  background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+}
+
+/* BOTÓN SECUNDARIO */
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-blue);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  border: 2px solid var(--primary-blue);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-blue);
+  color: var(--white);
+}
+
+/* INPUTS */
+input, textarea {
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: var(--dark-gray);
+  background-color: var(--white);
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(30, 77, 139, 0.1);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--medium-gray);
+}
+
+/* SCROLLBAR PERSONALIZADA */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+  border-radius: 8px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--medium-gray);
+  border-radius: 8px;
+  border: 2px solid var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-blue);
+}
+
+/* ESTILOS CHAT AJOVER */
+
+/* Burbujas IA (IAMessage.vue) */
+.ai {
+    max-width: 80%;
+    padding: 18px 24px;
+    border-radius: 18px 18px 18px 4px;
+    background: var(--white);
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+    margin-bottom: 16px;
+    position: relative;
+    box-shadow: var(--shadow-light);
+    border: 1.5px solid var(--primary-blue);
+    align-self: flex-start;
+    text-align: left;
+}
+
+.ai::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+    border-radius: 18px 18px 0 0;
+}
+
+/* Burbujas usuario (HumanMessage.vue) */
+.user-message .message-content {
+    max-width: 80%;
+    padding: 18px 24px;
+    border-radius: 18px 18px 4px 18px;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+    color: var(--white);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+    font-weight: 500;
+    box-shadow: var(--shadow-light);
+    position: relative;
+    text-align: left;
+}
+
+.user-message .message-content::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 12px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--secondary-blue);
+}
+
+/* Consistencia en responsive */
+@media (max-width: 768px) {
+    .ai, .user-message .message-content {
+        font-size: 0.90rem;
+        padding: 14px 14px;
+        max-width: 98%;
+    }
+}
+
+@media (max-width: 480px) {
+    .ai, .user-message .message-content {
+        font-size: 0.87rem;
+        padding: 10px 8px;
+        max-width: 98%;
+    }
+}
+
+/* Línea superior del chat/card para branding */
+.cardContent {
+    background: rgba(255,255,255,0.11) !important;
+    border-radius: 18px;
+}
+
+/* Fondo input y pie de página más suave */
+.input-container, .input-footer {
+    background: rgba(255,255,255,0.14) !important;
+}
+
+/* UTILIDADES RESPONSIVAS */
+@media (max-width: 768px) {
+  body {
+    background-size: cover;
+    background-position: center center;
+  }
+  
+  #app {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    margin: 0;
+    border: none;
+  }
+  
+  body {
+    padding: 0;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  body {
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+/* Ajustes para pantallas grandes
+@media (min-width: 1200px) {
+  body {
+    background-size: contain;
+    background-position: center center;
+  }
+} */
+
+/* ANIMACIONES SUAVES */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ESTADOS DE CARGA */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* ESTADOS DE ERROR */
+.error {
+  color: var(--warning-red);
+  border-color: var(--warning-red);
+}
+
+/* ESTADOS DE ÉXITO */
+.success {
+  color: var(--success-green);
+  border-color: var(--success-green);
+}

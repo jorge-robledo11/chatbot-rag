@@ -1,0 +1,30 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+.vscode/
+
+# Cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environment variables
+.env
+local.settings.json
+env_vars.json
+index.json
+
+# Notebooks
+notebooks/desing_pattern.ipynb
+notebooks/env_vars.ipynb
+notebooks/azure_function_env_vars.ipynb
+
+# Directories
+backups/
+debug/

@@ -1,0 +1,11 @@
+{
+  "function_name": "searchai_create_factory",
+  "execution_time": 0.0008180141448974609,
+  "cpu_percent": 0.0,
+  "memory_peak_mb": 141.78515625,
+  "memory_current_mb": 141.8046875,
+  "call_count": 876,
+  "tokens_processed": null,
+  "context_size": null,
+  "timestamp": 1755380771.619795
+}

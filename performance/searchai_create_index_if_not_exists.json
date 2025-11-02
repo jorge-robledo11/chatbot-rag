@@ -1,0 +1,11 @@
+{
+  "function_name": "searchai_create_index_if_not_exists",
+  "execution_time": 0.12210631370544434,
+  "cpu_percent": 0.0,
+  "memory_peak_mb": 189.74609375,
+  "memory_current_mb": 189.92578125,
+  "call_count": 8212,
+  "tokens_processed": null,
+  "context_size": null,
+  "timestamp": 1753918025.364103
+}

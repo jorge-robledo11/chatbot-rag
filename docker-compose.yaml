@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+      target: runtime
+    image: ajover-backend:dev
+    env_file:
+      - .env
+    container_name: backend
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    volumes:
+      - ./performance:/app/performance
+      - ./logs:/app/logs
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    image: ajover-frontend:dev
+    container_name: frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+networks:
+  default:
+    name: ajover-net

@@ -1,0 +1,11 @@
+{
+  "function_name": "openai_create_factory",
+  "execution_time": 0.011847734451293945,
+  "cpu_percent": 0.0,
+  "memory_peak_mb": 141.55078125,
+  "memory_current_mb": 141.7734375,
+  "call_count": 3197,
+  "tokens_processed": null,
+  "context_size": null,
+  "timestamp": 1755380771.618361
+}

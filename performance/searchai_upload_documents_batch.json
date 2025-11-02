@@ -1,0 +1,11 @@
+{
+  "function_name": "searchai_upload_documents_batch",
+  "execution_time": 1.085951328277588,
+  "cpu_percent": 0.0,
+  "memory_peak_mb": 350.99609375,
+  "memory_current_mb": 364.125,
+  "call_count": 4750,
+  "tokens_processed": null,
+  "context_size": null,
+  "timestamp": 1753918171.5216897
+}

@@ -1,0 +1,202 @@
+[project]
+name = "chatbot-ajover"
+version = "0.1.0"
+description = "Chatbot para la empresa Ajover"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "python-dotenv>=1.1.0",
+    "azure-containerregistry>=1.2.0",
+    "azure-cosmos>=4.9.0",
+    "azure-identity>=1.23.0",
+    "azure-mgmt-cognitiveservices>=13.6.0",
+    "azure-mgmt-containerregistry>=14.0.0",
+    "azure-mgmt-resource>=23.4.0",
+    "azure-mgmt-web>=8.0.0",
+    "azure-search-documents>=11.5.2",
+    "azure-storage-blob>=12.25.1",
+    "fastapi[all]>=0.115.12",
+    "pymupdf>=1.24.1",
+    "numpy<2.0",
+    "openai>=1.84.0",
+    "opencv-python>=4.11.0.86",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "pymongo>=4.13.1",
+    "uvicorn>=0.34.3",
+    "tiktoken>=0.9.0",
+    "aiohttp>=3.12.12",
+    "scalar-fastapi>=1.0.3",
+    "motor>=3.7.1",
+    "passlib>=1.7.4",
+    "aiolimiter>=1.2.1",
+    "langgraph>=0.4.8",
+    "langchain-openai>=0.3.23",
+    "langchain-core>=0.3.65",
+    "scrapegraphai>=1.59.0",
+    "playwright>=1.52.0",
+    "azure-functions>=1.23.0",
+    "tzdata>=2025.2",
+    "langchain-experimental>=0.3.4",
+]
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+    "loguru>=0.7.3",
+    "markdown>=3.8",
+    "mypy>=1.16.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "pre-commit>=4.2.0",
+    "pydocstyle>=6.3.0",
+    "pytest>=8.4.0",
+    "pytest-asyncio>=1.0.0",
+    "pytest-mock>=3.14.1",
+    "pytest-motor>=0.3.0",
+    "pyupgrade>=3.20.0",
+    "ruff>=0.11.13",
+    "types-setuptools>=68.0.0",
+    "pandas>=2.3.1",
+    "matplotlib>=3.10.3",
+    "seaborn>=0.13.2",
+]
+
+azure = [
+    "fastapi[all]>=0.115.12",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "loguru>=0.7.3",
+    "azure-containerregistry>=1.2.0",
+    "azure-cosmos>=4.9.0",
+    "azure-identity>=1.23.0",
+    "azure-search-documents>=11.5.2",
+    "azure-storage-blob>=12.25.1",
+    "azure-functions>=1.23.0",
+    "openai>=1.84.0",
+    "numpy<2.0",
+    "pymongo>=4.13.1",
+    "uvicorn>=0.34.3",
+    "tiktoken>=0.9.0",
+    "aiohttp>=3.12.12",
+    "scalar-fastapi>=1.0.3",
+    "motor>=3.7.1",
+    "passlib>=1.7.4",
+    "aiolimiter>=1.2.1",
+    "langgraph>=0.4.8",
+    "langchain-openai>=0.3.23",
+    "langchain-core>=0.3.65",
+    "nest-asyncio>=1.6.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["backend"]
+exclude = [
+    "backend/tests/",
+    "backend/**/*test*.py",
+    "backend/**/test_*.py",
+    "backend/**/__pycache__/",
+]
+
+[tool.hatch.build.targets.sdist]
+exclude = ["/.git", "/frontend", "/notebooks", "/debug", "/logs", "*.log"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "--import-mode=importlib -p pytest_motor"
+pythonpath = ["."]
+cache_dir = ".pytest_cache"
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 88 # Longitud máxima de línea (como Black)
+target-version = "py311" # Versión de Python objetivo
+preview = true
+
+exclude = [
+  "*.ipynb", ".venv/", "scripts/", "frontend/", "debug/",
+  "json/", "logs/", "notebooks/",
+]
+
+[tool.ruff.lint]
+select = [
+    "E", "F", "B", "I", "UP", "D",
+    "C4", "SIM", "RET", "PTH", "PD",
+    "NPY", "RUF", "ANN", "RUF029", 
+    "E302", "E303", "E305",   # espaciado (necesita preview=true)
+]
+extend-select = ["COM"]
+
+ignore = [
+    "COM812",      # trailing-comma con formatter
+    "D100", "D104", "D107",
+    "D200", "D203", "D212", "D401", "D413",
+    "E501",      # line-length controlado por formatter
+    "RUF029", "RUF006",   # Ignorar funciones async sin await
+]
+
+
+[tool.ruff.lint.flake8-type-checking]
+runtime-evaluated-base-classes = [
+    "pydantic.BaseModel",
+    "fastapi.BaseModel",
+    "langchain_core.BaseModel",
+]
+
+[tool.ruff.lint.pyupgrade]
+keep-runtime-typing = false
+
+[tool.ruff.format]
+quote-style = "single"            # Usa comillas simples en el formateo
+indent-style = "space"            # Usa espacios en el formateo
+docstring-code-format = true
+skip-magic-trailing-comma = false
+
+[tool.pydocstyle]
+convention = "google"
+
+add-ignore = ["D104", "D200", "D203", "D212", "D413"]
+
+[tool.mypy]
+python_version = "3.11"             # Versión de Python para type checking
+warn_return_any = true              # Advertir sobre funciones que retornan Any
+warn_unused_configs = true          # Advertir sobre configuraciones no usadas
+disallow_untyped_defs = true        # No permitir funciones sin tipos
+disallow_incomplete_defs = true     # No permitir definiciones incompletas
+check_untyped_defs = true           # Verificar funciones sin tipos
+disallow_untyped_decorators = false # Permitir decoradores sin tipos
+no_implicit_optional = true         # No hacer Optional implícito
+strict = false                      # Modo estricto activado
+warn_redundant_casts = true         # Advertir sobre casts redundantes
+warn_unused_ignores = true          # Advertir sobre  # type: ignore no usados
+warn_no_return = true               # Advertir sobre funciones que no retornan
+warn_unreachable = true             # Advertir sobre código inalcanzable
+ignore_missing_imports = true       # Ignorar imports que no se pueden resolver
+show_error_codes = true             # Mostrar códigos de error
+plugins = ["pydantic.mypy"]         # Plugin para pydantic
+ignore_errors = true
+disable_error_code = ["no-any-return"]
+
+
+exclude = [
+    "*.ipynb",
+    "tests/",         # Ignora tests si no tienen anotaciones de tipo
+    "scripts/",       # Ignora scripts auxiliares
+    "**/__init__.py", # Opcional: ignora docstrings en __init__
+]
+
+[tool.coverage.run]
+source = ["."]
+omit = ["*/tests/*", "*/test_*", "*/__init__.py", "*/conftest.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",           # Líneas marcadas explícitamente
+    "def __repr__",               # Métodos __repr__
+    "raise AssertionError",       # Assertions
+    "raise NotImplementedError",  # Métodos no implementados
+    "if __name__ == .__main__.:", # Bloques de script principal
+]

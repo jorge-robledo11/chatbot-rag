@@ -1,0 +1,11 @@
+{
+  "function_name": "searchai_get_documents_metadata",
+  "execution_time": 0.5175027847290039,
+  "cpu_percent": 0.0,
+  "memory_peak_mb": 156.96875,
+  "memory_current_mb": 157.51953125,
+  "call_count": 3957,
+  "tokens_processed": null,
+  "context_size": null,
+  "timestamp": 1753912388.034892
+}
